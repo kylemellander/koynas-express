@@ -1,5 +1,14 @@
 extends layout
 
 block content
+  if message
+    p #{message}
   h1= title
   p Welcome to #{title}
+
+  if !user
+    p Please
+      a(href='/login') login here
+  else
+    p Hello, #{user.username}. View your
+      a(href='/profile') profile
